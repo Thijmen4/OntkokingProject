@@ -1,0 +1,32 @@
+*{
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+body {
+    background-color: #f5f5f5;
+    font-family: monospace;
+    font-weight: 400;
+
+}
+
+header {
+    background-color: #439038;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sideMenu {
+   position: fixed;
+    z-index: 50;
+    left: 0;
+    width: 180px;
+    height: 100%;
+    background-color: #336f2b;
+    overflow: auto;
+}
+
+.sideMenu input {
+    color: #fff;
+}

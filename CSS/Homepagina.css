@@ -11,22 +11,16 @@ body {
 }
 
 header {
+    margin: 0px auto
+}
+
+.header {
     background-color: #439038;
-    padding: 40px;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
 }
 
-.sideMenu {
-   position: fixed;
-    z-index: 50;
-    left: 0;
-    width: 180px;
-    height: 100%;
-    background-color: #336f2b;
-    overflow: auto;
-}
-
-.sideMenu input {
-    color: #fff;
+header img {
+    width: 120px;
+    height: auto;
 }

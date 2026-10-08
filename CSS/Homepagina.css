@@ -1,26 +1,209 @@
-*{
+* {
     box-sizing: border-box;
-    margin: 0 auto;
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: #f5f5f5;
-    font-family: monospace;
-    font-weight: 400;
-
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+   
+    
 }
+
+ @font-face {
+    font-family: 'font';
+    src: url();
+  }
+
+
+.backgroundimg {
+    position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: url("../IMAGES/Ontkoking\ background.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+    background-attachment: fixed;
+    filter: blur(4px) brightness(80%);
+}
+
 
 header {
-    margin: 0px auto
+   font-size: 20px;
+   text-transform: uppercase;
+   margin-top: 20px;
+   display: flex;
+   justify-content: center;
 }
 
-.header {
-    background-color: #439038;
+.navbar {
+    background-color: rgba(23, 112, 48, 0.677);
+    width: 95%;
+    height: 100px;
+    display: flex;
+    position: sticky;
+    border: solid rgba(29, 134, 59, 0.677) 2px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: white;
+    direction: row;
+
+}
+
+nav ul{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 500px;
+    
+}
+
+.navbar a,
+.navbar a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+
+
+.home-link:hover {
+    color: rgb(0, 0, 0);
+    transition: 0.3s;
+    transform: scale(1.5);
+}
+
+
+.home_logo {
+    width: 100px;
+}
+
+main {
     text-align: center;
-    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
 }
 
-header img {
-    width: 120px;
+.hero {
+    margin-bottom: 30%;
+}
+
+.hero_tekst {
+    color: black;
+    padding: 13%;
+    width: 80%;
+}
+
+.hero_titel {
+    font-size: 30px;
+    color: white;
+}
+
+.hero_quote {
+    font-size: 25px;
+    color: rgb(23, 112, 48);
+    margin-bottom: 4%;
+    
+}
+
+.hero_buttons {
+    display: flex;
+    justify-content: center;
+    gap: 4%;
+    margin-top: 20px;
+}
+
+.contact-button {
+    background-color: rgba(23, 112, 48, 0.677);
+    border: solid rgba(29, 134, 59, 0.677) 2px;
+    color: white;
+    padding: 15px 20px;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    justify-content: center;
+    text-align: center;
+}
+
+.contact-button:hover {
+    background-color: rgb(23, 112, 48);
+    transition: 0.3s;
+    transform: scale(1.1);
+}
+
+.Meer-button {
+    background-color: rgba(23, 112, 48, 0.677);
+    border: solid rgba(29, 134, 59, 0.677) 2px;
+    color: white;
+    padding: 15px 20px;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    justify-content: center;
+    text-align: center;
+    
+}
+
+.Meer-button:hover {
+    background-color: rgb(23, 112, 48);
+    transition: 0.3s;
+    transform: scale(1.1);
+}
+
+.hero_img {
+    width: 300px;
+    height: 300px;
+    border-radius: 25px;
+    margin: -300px auto;
+    position: relative;
+    margin-left: 100%;
+    background-image: url(../IMAGES/Ontkoking\ logo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+   
+
+.blok_container {
+    display: grid;
+    width: 95%;
     height: auto;
+    grid-template-columns: 7fr 3fr;
+    gap: 10px;
+    margin: 0 auto;
+    color: white;
+}
+
+.introtekst_blok {
+    background-color: rgba(23, 112, 48, 0.677);
+      border: solid rgba(29, 134, 59, 0.677) 2px;
+    height: 300px;
+    border-radius: 25px;
+    padding: 5%;
+    box-sizing: border-box;
+}
+
+.introimage_blok {
+    background-color: rgba(23, 112, 48, 0.677);
+    border: solid rgba(29, 134, 59, 0.677) 2px;
+    height: 300px;
+    border-radius: 25px;
+    padding: 5%;
+    box-sizing: border-box;
+}
+
+
+footer {
+    background-color: rgba(23, 112, 48, 0.677);
+    border: solid rgba(29, 134, 59, 0.677) 2px;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    color: white;
+    border-radius: 25px;
+    width: 95%;
+    display: flex;
+    margin: 0px auto;
+    margin-top: 30px;
 }

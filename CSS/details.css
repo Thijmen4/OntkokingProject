@@ -1,6 +1,63 @@
 body{
-    background-color: #141217;
-    color: #F5F2F7;
+    background-color: #FBF8F3;
+    color: #1E1B18;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 15px 40px;
+    border: 1px solid #E5E0DA;
+}
+
+.nav-left {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #6E6A66;
+}
+
+.nav-link:hover {
+    color: #1E1B18;
+    font-weight: bold;
+}
+
+.nav-search {
+    flex: 1;
+    max-width: 500px;
+}
+
+.nav-search input {
+    width: 100%;
+    padding: 10px 16px;
+    border: 1px solid #E5E0DA;
+    border-radius: 20px;
+    background-color: #FBF8F3;
+    outline: none;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-register {
+    text-decoration: none;
+    background-color: #7C3AED;
+    color: #FFFFFF;
+    padding: 8px 18px;
+    border-radius: 8px;
+}
+
+.btn-register:hover {
+    background-color: #6D28D9;
 }
 
 .hero-kaan{
@@ -24,27 +81,29 @@ body{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    background-color: #1D1921;
+    background-color: #F3EEE8;
     width: 100%;
     border-radius: 14px;
     padding: 40px;
+    box-sizing: border-box;
 }
 
 .column{
-    background-color: #25212b;
+    background-color: #FFFFFF;
     border-radius: 14px;
     padding: 20px;
+    margin-bottom: 15px;
 }
 
 .step {
     display: flex;
     gap: 15px;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .step-number {
-    border: 1px solid #5B3B8C;
-    color: #A78BFA;
+    border: 2px solid #D8C7F3;
+    color: #7C3AED;
     padding: 5px 10px;
     border-radius: 8px;
     font-weight: bold;

@@ -85,26 +85,26 @@ nav ul{
 
 .categorien {
     display: flex;
-    width: 95%;
+    max-width: 95%;
     gap: 20px;
     justify-content: space-evenly;
-    margin: 0 auto
+    margin: 10px auto;
 }
 
 .ontbijt {
-    padding: 50px 150px;
+    padding: 25px 14%;
     border-radius: 25px;
     
 }
 
 .lunch {
-    padding: 30px 150px;
+    padding: 25px 14%;
     border-radius: 25px;
     
 }
 
 .avondeten {
-    padding: 30px 150px;
+    padding: 25px 14%;
     border-radius: 25px;
     
 }
@@ -120,7 +120,7 @@ main {
 
 .hero_tekst {
     color: black;
-    padding: 13%;
+    padding: 7%;
     width: 80%;
 }
 

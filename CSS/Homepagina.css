@@ -44,8 +44,9 @@ header {
     justify-content: space-evenly;
     color: white;
     border-radius: 25px;
-    
-
+    border: solid rgb(75, 133, 81) 2px;
+    background-color: rgba(66, 167, 66, 0.366);
+    margin: 10px auto;
 }
 
 nav ul{
@@ -83,8 +84,6 @@ nav ul{
 
 
 
-
-
 .categorien {
     display: flex;
     max-width: 95%;
@@ -94,35 +93,57 @@ nav ul{
 }
 
 .ontbijt {
-    padding: 25px 14%;
+    padding: 25px 13%;
     border-radius: 25px;
-    background-color: rgba(0, 128, 0, 0);
+    background-color: rgba(66, 167, 66, 0.366);
     border: solid rgb(75, 133, 81) 2px;
     color: white;
     font-weight: bolder;
+    text-transform: uppercase;
     
+}
+
+.ontbijt:hover {
+    background-color: rgb(29, 115, 40);
+    transition: 0.3s;
+    transform: scale(1.1);
 }
 
 .lunch {
-    padding: 25px 14%;
+    padding: 25px 13%;
     border-radius: 25px;
-    background-color: rgba(0, 128, 0, 0);
+    background-color: rgba(66, 167, 66, 0.366);
     border: solid rgb(75, 133, 81) 2px;
     color: white;
     font-weight: bolder;
-    
+    text-transform: uppercase;
 }
+
+
+.lunch:hover {
+    background-color: rgb(29, 115, 40);
+    transition: 0.3s;
+    transform: scale(1.1);
+}
+
+
 
 .avondeten {
-    padding: 25px 14%;
+    padding: 25px 13%;
     border-radius: 25px;
-    background-color: rgba(0, 128, 0, 0);
+    background-color: rgba(66, 167, 66, 0.366);
     border: solid rgb(75, 133, 81) 2px;
     color: white;
     font-weight: bolder;
+    text-transform: uppercase;
     
 }
 
+.avondeten:hover {
+    background-color: rgb(29, 115, 40);
+    transition: 0.3s;
+    transform: scale(1.1);
+}
 
 main {
     text-align: center;
@@ -158,7 +179,7 @@ main {
 }
 
 .contact-button {
-    background-color: rgb(29, 115, 40);
+    background-color: rgba(66, 167, 66, 0.366);
     border: solid rgba(35, 158, 70, 0.997) 2px;
     color: white;
     padding: 15px 20px;
@@ -176,7 +197,7 @@ main {
 }
 
 .Meer-button {
-    background-color: rgb(29, 115, 40);
+    background-color: rgba(66, 167, 66, 0.366);
     border: solid rgba(35, 158, 70, 0.997) 2px;
     color: white;
     padding: 15px 20px;
@@ -211,33 +232,37 @@ main {
     display: grid;
     width: 95%;
     height: auto;
-    grid-template-columns: 7fr 3fr;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
     margin: 0 auto;
     color: white;
 }
 
-.introtekst_blok {
-    background-color: rgb(29, 115, 40);
-    border: solid rgba(35, 158, 70, 0.997) 2px;
+.recept1_blok {
+    background-color: rgb(255, 255, 255);
+    border: solid rgba(0, 0, 0, 0.997) 2px;
     height: 300px;
     border-radius: 25px;
     padding: 5%;
     box-sizing: border-box;
+    color: black;
 }
 
-.introimage_blok {
-    background-color: rgb(26, 100, 36);
-    border: solid rgba(35, 158, 70, 0.997) 2px;
+.recept2_blok {
+    background-color: rgb(255, 255, 255);
+    border: solid rgba(0, 0, 0, 0.997) 2px;
     height: 300px;
     border-radius: 25px;
     padding: 5%;
     box-sizing: border-box;
+    color: black;
 }
+
+
 
 
 footer {
-    background-color: rgb(29, 115, 40);
+    background-color: rgba(66, 167, 66, 0.366);
     border: solid rgba(35, 158, 70, 0.997) 2px;
     justify-content: center;
     text-align: center;

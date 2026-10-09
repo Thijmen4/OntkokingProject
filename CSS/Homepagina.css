@@ -4,9 +4,7 @@
 }
 
 body {
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
-   
-    
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
  @font-face {
@@ -19,36 +17,34 @@ body {
     position: fixed;
   inset: 0;
   z-index: -1;
-  background-image: url("../IMAGES/Ontkoking\ background.jpeg");
+  background-color: rgb(78, 183, 76);
+  background-image: url(../IMAGES/Kook\ achtergrond\ donker.png);
   background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
-    background-attachment: fixed;
-    filter: blur(4px) brightness(80%);
+  background-attachment: fixed;
 }
 
 
 header {
    font-size: 20px;
    text-transform: uppercase;
-   margin-top: 20px;
+   position: relative;
    display: flex;
    justify-content: center;
+   margin: 0 auto;
 }
 
 .navbar {
-    background-color: rgb(29, 115, 40);
-    width: 95%;
+    background-color: rgba(68, 160, 66, 0);
+    width: 100%;
     height: 100px;
-    display: flex;
     position: sticky;
-    border: solid rgba(35, 158, 70, 0.997) 2px;
-    border-radius: 25px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     color: white;
-    direction: row;
+    border-radius: 25px;
+    
 
 }
 
@@ -69,6 +65,14 @@ nav ul{
     text-decoration: none;
 }
 
+.home-logo{
+    width: 50px;
+}
+
+.home_link img {
+    width: 10px;
+}
+
 
 
 .home-link:hover {
@@ -78,9 +82,7 @@ nav ul{
 }
 
 
-.home_logo {
-    width: 100px;
-}
+
 
 
 .categorien {
@@ -94,18 +96,30 @@ nav ul{
 .ontbijt {
     padding: 25px 14%;
     border-radius: 25px;
+    background-color: rgba(0, 128, 0, 0);
+    border: solid rgb(75, 133, 81) 2px;
+    color: white;
+    font-weight: bolder;
     
 }
 
 .lunch {
     padding: 25px 14%;
     border-radius: 25px;
+    background-color: rgba(0, 128, 0, 0);
+    border: solid rgb(75, 133, 81) 2px;
+    color: white;
+    font-weight: bolder;
     
 }
 
 .avondeten {
     padding: 25px 14%;
     border-radius: 25px;
+    background-color: rgba(0, 128, 0, 0);
+    border: solid rgb(75, 133, 81) 2px;
+    color: white;
+    font-weight: bolder;
     
 }
 
@@ -187,7 +201,7 @@ main {
     margin: -300px auto;
     position: relative;
     margin-left: 100%;
-    background-image: url(../IMAGES/Ontkoking\ logo.png);
+    background-image: url();
     background-size: cover;
     background-repeat: no-repeat;
 }

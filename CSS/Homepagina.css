@@ -106,58 +106,6 @@ nav ul{
     transform: scale(1.01);
 }
 
-/* .ontbijt {
-    padding: 25px 13%;
-    border-radius: 25px;
-    background-color: rgba(66, 167, 66, 0.366);
-    border: solid rgb(75, 133, 81) 2px;
-    color: white;
-    font-weight: bolder;
-    text-transform: uppercase;
-    
-}
-
-.ontbijt:hover {
-    background-color: rgb(29, 115, 40);
-    transition: 0.3s;
-    transform: scale(1.1);
-}
-
-.lunch {
-    padding: 25px 13%;
-    border-radius: 25px;
-    background-color: rgba(66, 167, 66, 0.366);
-    border: solid rgb(75, 133, 81) 2px;
-    color: white;
-    font-weight: bolder;
-    text-transform: uppercase;
-}
-
-
-.lunch:hover {
-    background-color: rgb(29, 115, 40);
-    transition: 0.3s;
-    transform: scale(1.1);
-}
-
-
-
-.avondeten {
-    padding: 25px 13%;
-    border-radius: 25px;
-    background-color: rgba(66, 167, 66, 0.366);
-    border: solid rgb(75, 133, 81) 2px;
-    color: white;
-    font-weight: bolder;
-    text-transform: uppercase;
-    
-}
-
-.avondeten:hover {
-    background-color: rgb(29, 115, 40);
-    transition: 0.3s;
-    transform: scale(1.1);
-} */
 
 main {
     text-align: center;
@@ -185,49 +133,27 @@ main {
     
 }
 
-.hero_buttons {
-    display: flex;
-    justify-content: center;
-    gap: 4%;
-    margin-top: 20px;
+.hero_buttons button {
+    width: 30%;
+    padding: 20px;
+    gap: 20px;
+    background-color: rgb(44, 119, 44);
+    border: none;
+    outline: white solid 2px;
+    color:  white;
+    font-weight: bolder;
+    text-transform: uppercase;
 }
 
-.contact-button {
-    background-color: rgba(66, 167, 66, 0.366);
-    border: solid rgba(35, 158, 70, 0.997) 2px;
-    color: white;
-    padding: 15px 20px;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s ease;
-    justify-content: center;
-    text-align: center;
-}
 
-.contact-button:hover {
+
+.hero-buttons button:hover {
     background-color: rgb(29, 115, 40);
     transition: 0.3s;
     transform: scale(1.1);
 }
 
-.Meer-button {
-    background-color: rgba(66, 167, 66, 0.366);
-    border: solid rgba(35, 158, 70, 0.997) 2px;
-    color: white;
-    padding: 15px 20px;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s ease;
-    justify-content: center;
-    text-align: center;
-    
-}
 
-.Meer-button:hover {
-    background-color: rgb(29, 115, 40);
-    transition: 0.3s;
-    transform: scale(1.1);
-}
 
 .hero_img {
     width: 300px;

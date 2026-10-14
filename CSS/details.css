@@ -1,4 +1,7 @@
-body{
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
     background-color: #FBF8F3;
     color: #1E1B18;
     box-sizing: border-box;
@@ -10,7 +13,7 @@ body{
     align-items: center;
     background-color: #FFFFFF;
     padding: 15px 40px;
-    border: 1px solid #E5E0DA;
+    border-bottom: 1px solid #E5E0DA;
 }
 
 .nav-left {
@@ -60,45 +63,58 @@ body{
     background-color: #6D28D9;
 }
 
-.hero-kaan{
+.hero-kaan {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
     align-items: center;
-    padding: 40px;
+    padding: 30px 40px;
 }
 
-.hero-kaan-img img{
+/* FOTO GROTER GEMAAKT: Vult de ruimte bovenin op zodat alles naar onder zakt */
+.hero-kaan-img img {
     width: 100%;
+    height: 380px; /* Pas deze waarde aan (bijv. 350px of 400px) om meer of minder ruimte te vullen */
+    object-fit: cover;
     border-radius: 16px;
 }
 
-.hero-kaan-info{
+.hero-kaan-info {
     padding: 20px;
 }
 
-.kaandebanaan{
+.kaandebanaan {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
     background-color: #F3EEE8;
-    width: 100%;
+    margin: 0 40px;
     border-radius: 14px;
-    padding: 40px;
+    padding: 30px 40px;
     box-sizing: border-box;
 }
 
-.column{
+.column {
     background-color: #FFFFFF;
     border-radius: 14px;
     padding: 20px;
     margin-bottom: 15px;
 }
 
+.column ul {
+    margin: 0;
+    padding-left: 20px;
+    line-height: 2;
+}
+
 .step {
     display: flex;
     gap: 15px;
-    align-items: center;
+    align-items: flex-start;
+}
+
+.step h3, .step p {
+    margin: 0;
 }
 
 .step-number {
@@ -107,4 +123,25 @@ body{
     padding: 5px 10px;
     border-radius: 8px;
     font-weight: bold;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px;
+    margin-top: 30px;
+    font-size: 0.85rem;
+    color: #6E6A66;
+    border-top: 1px solid #E5E0DA;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #6E6A66;
 }

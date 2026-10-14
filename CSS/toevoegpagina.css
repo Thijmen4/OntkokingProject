@@ -1,0 +1,337 @@
+:root {
+    --bg-cream: #fbf6ec;
+    --text-dark: #222222;
+    --card-bg: #fffcf7;
+    --input-bg: #ffffff;
+    --border-color: #e6dec9;
+    --border-input: #e0d6bd;
+    --accent-purple: #7b59e8;
+    --accent-purple-light: #ece6fd;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: serif;
+}
+
+body {
+    background-color: var(--bg-cream);
+    color: var(--text-dark);
+    min-height: 100vh;
+    padding-bottom: 60px;
+}
+
+.top-search-container {
+    padding: 25px 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.search-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 960px;
+}
+
+.top-search-container input {
+    width: 100%;
+    background-color: white;
+    border: 1px solid var(--border-input);
+    border-radius: 25px;
+    padding: 12px 20px 12px 45px;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    outline: none;
+}
+
+.search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    fill: #888;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.back-link {
+    color: #666;
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.back-link:hover {
+    color: var(--text-dark);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    font-weight: normal;
+    letter-spacing: -0.5px;
+}
+
+.form-grid-top {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+@media(max-width: 768px) {
+    .form-grid-top {
+        grid-template-columns: 1fr;
+    }
+}
+
+.right-top-side {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.photo-upload {
+    background-color: var(--card-bg);
+    border: 1px dashed var(--border-input);
+    border-radius: 8px;
+    height: 100%;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s;
+}
+
+.photo-upload:hover {
+    border-color: var(--accent-purple);
+}
+
+.photo-upload img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.photo-upload svg {
+    width: 32px;
+    height: 32px;
+    fill: #888;
+    margin-bottom: 8px;
+}
+
+.photo-upload span {
+    color: #777;
+    font-size: 0.85rem;
+}
+
+.photo-input {
+    display: none;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #777;
+}
+
+input[type="text"], textarea {
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-input);
+    border-radius: 6px;
+    padding: 12px;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    outline: none;
+    width: 100%;
+}
+
+input[type="text"]:focus, textarea:focus {
+    border-color: var(--accent-purple);
+}
+
+.categories-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.category-chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.chip {
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-input);
+    color: #555;
+    padding: 7px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.2s;
+}
+
+.chip.selected {
+    background-color: var(--accent-purple-light);
+    border-color: var(--accent-purple);
+    color: var(--accent-purple);
+    font-weight: bold;
+}
+
+.meta-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+@media(max-width: 768px) {
+    .meta-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.description-box {
+    margin-bottom: 35px;
+}
+
+.description-box textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+.sections-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 30px;
+    margin-bottom: 35px;
+}
+
+@media(max-width: 900px) {
+    .sections-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+h2 {
+    font-size: 1.7rem;
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+
+.card-container {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ingredient-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.ingredient-row input {
+    padding: 10px;
+    font-size: 0.9rem;
+}
+
+.add-row-btn {
+    background: transparent;
+    border: 1px dashed var(--border-input);
+    color: #666;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    transition: all 0.2s;
+}
+
+.add-row-btn:hover {
+    border-color: var(--accent-purple);
+    color: var(--accent-purple);
+}
+
+.step-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.step-number {
+    background-color: var(--accent-purple-light);
+    color: var(--accent-purple);
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+    border: 1px solid #d8ccfd;
+}
+
+.step-row textarea {
+    resize: vertical;
+    min-height: 70px;
+    font-size: 0.9rem;
+    padding: 10px;
+}
+
+
+.submit-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.save-btn {
+    background-color: var(--accent-purple);
+    color: white;
+    border: none;
+    padding: 14px 35px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.save-btn:hover {
+    background-color: #6944d6;
+}

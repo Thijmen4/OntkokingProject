@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duck & dish - Recept Toevoegen</title>
+    <link rel="stylesheet" href="../CSS/toevoegpagina.css">
+</head>
+<body>
+
+<div class="top-search-container">
+    <div class="search-wrapper">
+        <svg class="search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        <input type="text" placeholder="Zoek recepten, ingrediënten of kooktechnieken">
+    </div>
+</div>
+
+<div class="container">
+
+    <a href="homepagina.html" class="back-link">&lsaquo; Terug naar recepten</a>
+
+    <h1>Recept toevoegen</h1>
+
+    <form id="recipeForm">
+
+        <div class="form-grid-top">
+            <div class="photo-upload" id="photoUploadBox">
+                <svg viewBox="0 0 24 24"><path d="M4 5h3l2-2h6l2 2h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm8 13a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0-2a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+                <span>Voeg een foto toe</span>
+                <img id="imagePreview" alt="Voorbeeld">
+                <input type="file" class="photo-input" id="fileInput" accept="image/*">
+            </div>
+
+            <div class="right-top-side">
+                <div class="input-group">
+                    <label for="recipeTitle">Titel</label>
+                    <input type="text" id="recipeTitle" placeholder="Bijv. Romige pompoensoep">
+                </div>
+
+                <div class="categories-container">
+                    <label>Categorie</label>
+                    <div class="category-chips">
+                        <div class="chip selected" data-cat="hoofdgerecht">Hoofdgerecht</div>
+                        <div class="chip" data-cat="lunch">Lunch</div>
+                        <div class="chip" data-cat="ontbijt">Ontbijt</div>
+                        <div class="chip" data-cat="voorgerecht">Voorgerecht</div>
+                        <div class="chip" data-cat="nagerecht">Nagerecht</div>
+                    </div>
+                </div>
+
+                <div class="meta-grid">
+                    <div class="input-group">
+                        <label>Voorbereiding</label>
+                        <input type="text" placeholder="10 min">
+                    </div>
+                    <div class="input-group">
+                        <label>Bereiding</label>
+                        <input type="text" placeholder="15 min">
+                    </div>
+                    <div class="input-group">
+                        <label>Porties</label>
+                        <input type="text" placeholder="2 porties">
+                    </div>
+                    <div class="input-group">
+                        <label>Moeilijkheid</label>
+                        <input type="text" placeholder="Makkelijk">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group description-box">
+            <label>Korte beschrijving</label>
+            <textarea placeholder="Waarom is dit recept de moeite waard?"></textarea>
+        </div>
+
+        <div class="sections-grid">
+
+            <div>
+                <h2>Ingrediënten</h2>
+                <div class="card-container" id="ingredientList">
+                    <div class="ingredient-row">
+                        <input type="text" placeholder="Ingrediënt">
+                        <input type="text" placeholder="Hoeveelheid">
+                    </div>
+                    <div class="ingredient-row">
+                        <input type="text" placeholder="Ingrediënt">
+                        <input type="text" placeholder="Hoeveelheid">
+                    </div>
+                    <div class="ingredient-row">
+                        <input type="text" placeholder="Ingrediënt">
+                        <input type="text" placeholder="Hoeveelheid">
+                    </div>
+                    <button type="button" class="add-row-btn" id="addIngredientBtn">+ ingrediënt toevoegen</button>
+                </div>
+            </div>
+
+            <div>
+                <h2>Bereidingsstappen</h2>
+                <div class="card-container" id="stepsList">
+                    <div class="step-row">
+                        <div class="step-number">01</div>
+                        <textarea placeholder="Beschrijf deze stap..."></textarea>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-number">02</div>
+                        <textarea placeholder="Beschrijf deze stap..."></textarea>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-number">03</div>
+                        <textarea placeholder="Beschrijf deze stap..."></textarea>
+                    </div>
+                    <button type="button" class="add-row-btn" id="addStepBtn">+ stap toevoegen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="submit-container">
+            <button type="submit" class="save-btn">Recept opslaan</button>
+        </div>
+    </form>
+</div>
+
+<script src="../JS/toevoegpagina.js"></script>
+</body>
+</html>

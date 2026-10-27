@@ -1,7 +1,6 @@
-// use a script tag or an external JS file
+
  document.addEventListener("DOMContentLoaded", (event) => {
   gsap.registerPlugin(ScrollTrigger,SplitText,TextPlugin)
-  // gsap code here!
  });
 
 gsap.from(".hero_titel", {

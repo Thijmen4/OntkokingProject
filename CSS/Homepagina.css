@@ -3,9 +3,25 @@
     scroll-behavior: smooth;
 }
 
+html, body {
+    margin: 0;
+    min-height: 100%;
+}
+
 body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    margin-top: auto;
 }
 
  @font-face {
@@ -77,15 +93,19 @@ header {
     color: #292D27;
 }
 
-.invoegen {
+.invoegen:hover {
     color: #292D27;
 }
 
+.inloggen:hover {
+    color: #292D27;
+}
 .navbar a :hover {
     color: #FF875C;
     transition: 0.3s;
     transform: scale(1.1);
 }
+
 
 .navbar nav ul {
     display: flex;
@@ -103,9 +123,6 @@ header {
     text-transform: uppercase;
     transition: color 0.3s ease;
 }
-
-
-
 
 
 .categorien {
@@ -143,7 +160,6 @@ main {
 .hero_tekst {
     color: #292D27;
     padding: 7%;
-    width: 80%;
 }
 
 .hero_titel {
@@ -154,14 +170,14 @@ main {
 .hero_quote {
     font-size: 25px;
     color: #244D38;
-    margin-bottom: 4%;
+    
     
 }
 
 .hero_buttons button {
     width: 20%;
     padding: 20px 40px;
-    gap: 20px;
+    gap: 10%;
     background-color: #FF875C;
     border: none;
     outline: #292D27 solid 2px;
@@ -194,7 +210,7 @@ main {
 }
    
 
-.blok_container {
+.recepten {
     display: grid;
     width: 95%;
     height: auto;
@@ -204,7 +220,7 @@ main {
     color: #292D27;
 }
 
-.recept1_blok {
+.recept {
     background-color: rgb(255, 255, 255);
     border: solid #292D27 2px;
     height: 300px;
@@ -214,21 +230,14 @@ main {
     color: #292D27;
 }
 
-.recept2_blok {
-    background-color: rgb(255, 255, 255);
-    border: solid #292D27 2px;
-    height: 300px;
-    border-radius: 25px;
-    padding: 5%;
-    box-sizing: border-box;
-    color: #292D27;
-}
+
 
 
 
 
 footer {
     width: 100%;
+    height: 100px;
     background-color: #244D38;
     border: solid #292D27 2px;
     justify-content: center;
@@ -239,3 +248,4 @@ footer {
     margin: 0px auto;
     margin-top: 30px;
 }
+

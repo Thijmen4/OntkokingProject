@@ -71,10 +71,9 @@ html, body {
     padding: 30px 40px;
 }
 
-/* FOTO GROTER GEMAAKT: Vult de ruimte bovenin op zodat alles naar onder zakt */
 .hero-kaan-img img {
     width: 100%;
-    height: 380px; /* Pas deze waarde aan (bijv. 350px of 400px) om meer of minder ruimte te vullen */
+    height: 380px;
     object-fit: cover;
     border-radius: 16px;
 }

@@ -175,7 +175,7 @@ main {
 }
 
 .recepten:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
 }
 
 .recepten img {

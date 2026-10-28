@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Registreren</title>
+    <link rel="stylesheet" href="../CSS/form.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="nav-left">
+        <a href="Homepagina.html" class="nav-link">Home</a>
+    </div>
+    <div class="nav-right">
+        <a href="inlog.html" class="nav-link">Inloggen</a>
+    </div>
+</header>
+
+<div class="form-container">
+    <h2>Account Aanamaken</h2>
+
+    <form action="registreer_verwerk.php" method="POST">
+        <div class="form-group">
+            <label for="naam">Gebruikersnaam</label>
+            <input type="text" id="naam" name="naam" placeholder="Kies een gebruikersnaam" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">E-mailadres</label>
+            <input type="email" id="email" name="email" placeholder="Vul je e-mailadres in" required>
+        </div>
+
+        <div class="form-group">
+            <label for="wachtwoord">Wachtwoord</label>
+            <input type="password" id="wachtwoord" name="wachtwoord" placeholder="Bedenk een wachtwoord" required>
+        </div>
+
+        <button type="submit" class="btn-submit">Registreer</button>
+    </form>
+
+    <p class="form-footer">
+        Al een account? <a href="inlog.html">Log hier in</a>
+    </p>
+</div>
+
+</body>
+</html>

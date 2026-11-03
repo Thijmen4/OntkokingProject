@@ -7,60 +7,86 @@ html, body {
     box-sizing: border-box;
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #FFFFFF;
-    padding: 15px 40px;
-    border-bottom: 1px solid #E5E0DA;
-}
-
-.nav-left {
-    display: flex;
-    gap: 20px;
-}
-
-.nav-link {
-    text-decoration: none;
-    color: #6E6A66;
-}
-
-.nav-link:hover {
-    color: #1E1B18;
-    font-weight: bold;
-}
-
-.nav-search {
-    flex: 1;
-    max-width: 500px;
-}
-
-.nav-search input {
+header {
     width: 100%;
-    padding: 10px 16px;
-    border: 1px solid #E5E0DA;
-    border-radius: 20px;
-    background-color: #FBF8F3;
-    outline: none;
+    margin: 0;
 }
 
-.nav-right {
+.navbar {
+    background-color: #244D38;
+    width: 100%;
+    min-height: 80px;
+    padding: 0 35px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    outline: 1px solid #292D27;
+    box-sizing: border-box;
 }
 
-.btn-register {
+.home-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-link {
+    width: 100px;
+    height: 90px;
+    transition: transform 0.3s ease;
+}
+
+
+.home-link:hover {
+    color: #292D27;
+    transition: 0.3s;
+    transform: scale(1.1);
+}
+
+
+.zoeken {
+    width: 400px;
+    max-width: 50%;
+    padding: 12px 15px;
+    border-radius: 10px;
+    background-color: #FFF5E6;
+    border: 2px solid #292D27;
+    font-size: 16px;
+    color: #292D27;
+}
+
+.invoegen:hover {
+    color: #292D27;
+}
+
+.inloggen:hover {
+    color: #292D27;
+}
+.navbar a :hover {
+    color: #FF875C;
+    transition: 0.3s;
+    transform: scale(1.1);
+}
+
+
+.navbar nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar a {
+    color: #FFF5E6;
     text-decoration: none;
-    background-color: #7C3AED;
-    color: #FFFFFF;
-    padding: 8px 18px;
-    border-radius: 8px;
-}
-
-.btn-register:hover {
-    background-color: #6D28D9;
+    font-size: 20px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
 }
 
 .hero-kaan {
@@ -117,30 +143,24 @@ html, body {
 }
 
 .step-number {
-    border: 2px solid #D8C7F3;
-    color: #7C3AED;
+    border: 2px solid #eda496;
+    color: #D96C42;
     padding: 5px 10px;
     border-radius: 8px;
     font-weight: bold;
 }
 
-.footer {
+footer {
+    width: 100%;
+    height: 100px;
+    background-color: #244D38;
+    border: solid #292D27 2px;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    color: white;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 40px;
+    margin: 0px auto;
     margin-top: 30px;
-    font-size: 0.85rem;
-    color: #6E6A66;
-    border-top: 1px solid #E5E0DA;
-}
-
-.footer-links {
-    display: flex;
-    gap: 20px;
-}
-
-.footer-links a {
-    text-decoration: none;
-    color: #6E6A66;
+    box-sizing: border-box;
 }

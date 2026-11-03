@@ -124,6 +124,28 @@ header {
     transition: color 0.3s ease;
 }
 
+.duck-walker {
+    width: 144px;
+    height: 200px;
+    background-image: url('../IMAGES/duckndish.png');
+    background-size: 1440px 200px;   /* 10 frames × 144px */
+    background-position: 0 0;
+
+    animation: walk-cycle 1s steps(10) infinite,
+    move-across 10s linear infinite;
+
+    position: fixed;
+    bottom: 20px;
+    left: -200px;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+@keyframes walk-cycle {
+    from { background-position: 0 0; }
+    to   { background-position: -1440px 0; }
+}
+
 
 .categorien {
     display: flex;
@@ -208,7 +230,6 @@ main {
     background-size: cover;
     background-repeat: no-repeat;
 }
-   
 
 .populair {
     width: 100%;

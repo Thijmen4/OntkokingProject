@@ -13,3 +13,10 @@ gsap.from(".hero_tekst", {
   x: -200, opacity: 0,
   duration: 1.5, ease: "power2.out"
 });
+
+ gsap.to(".duck-walker", {
+     x: "100vw",
+     duration: 10,
+     repeat: -1,
+     ease: "none"
+ });

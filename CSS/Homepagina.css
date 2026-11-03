@@ -227,6 +227,7 @@ main {
 
 .populair_titel {
     text-align: left;
+    padding: 0;
 }
 
 .populair_fav {
@@ -251,7 +252,7 @@ main {
     margin: 12px 0 0;
 }
 
-/* Receptenkaarten */
+
 .recepten_box {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -298,30 +299,58 @@ main {
 }
 
 
-@media (max-width: 1000px) {
-    .recepten_box {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+.gezond {
+     width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 35px 60px;
 }
 
 
-@media (max-width: 600px) {
-    .populair {
-        padding: 0 18px 40px;
-    }
+.gezond_box {
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 0;
+    margin-bottom: 25px;
+}
 
-    .populair_titel h2 {
-        font-size: 26px;
-    }
+.gezond_titel {
+    text-align: left;
+    padding: 0;
+    
+}
 
-    .recepten_box {
-        grid-template-columns: 1fr;
-        gap: 18px;
-    }
+.gezond_fav {
+    display: block;
+    color: #D96C42;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.gezond_titel h2 {
+    font-size: 32px;
+    color: #244D38;
+    margin: 0 0 10px;
 }
 
 
+.gezond_titel p {
+    font-size: 16px;
+    color: #292D27;
+    margin: 12px 0 0;
+}
 
+.gehele_box {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 35px 60px;
+    background-color: #FFF5E6;
+    border-radius: 15px;
+}
 
 
 
@@ -341,3 +370,130 @@ footer {
     margin-top: 30px;
 }
 
+/* IMAC SCHERM */
+
+@media (min-width: 1600px) {
+
+    .recepten_box {
+        max-width: 1800px;
+        margin: 0 auto;
+        gap: 30px;
+        padding: 40px;
+    }
+
+    .recepten img {
+        height: 250px;
+    }
+
+    .sidemenu {
+        width: 260px;
+        min-width: 260px;
+        height: 1000px;
+        max-height: 2000px;
+        font-size: 18px;
+    }
+
+}
+
+
+   /* KLEINE LAPTOPS */
+  
+
+@media (max-width: 1200px) {
+
+    .recepten_box {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+}
+
+
+/* IPAD/TABLET */
+
+@media (max-width: 900px) {
+
+    .sidemenu {
+        width: 180px;
+        min-width: 180px;
+    }
+
+    .recepten_box {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .recepten img {
+        height: 160px;
+    }
+
+}
+
+
+/* TELEFOONS */
+
+@media (max-width: 600px) {
+
+
+    .navbar {
+        padding: 10px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .home-link {
+        width: 70px;
+        height: 65px;
+    }
+
+    .zoeken {
+        width: calc(100% - 90px);
+        max-width: none;
+    }
+
+    .navbar nav {
+        width: 100%;
+    }
+
+    .navbar nav ul {
+        justify-content: center;
+    }
+
+    .categorien button {
+        padding: 15px 5px;
+        font-size: 12px;
+    }
+
+    .pagina {
+        flex-direction: column;
+    }
+
+    .sidemenu {
+        width: 100%;
+        min-width: 0;
+        border-right: none;
+        border-bottom: 2px solid #292D27;
+    }
+
+    .filter {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .recepten_box {
+        grid-template-columns: 1fr;
+        padding: 15px;
+        gap: 20px;
+    }
+
+    .recepten img {
+        height: 200px;
+    }
+
+    .backgroundimg {
+        background-attachment: scroll;
+    }
+
+}

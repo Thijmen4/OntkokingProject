@@ -1,22 +1,27 @@
 <?php
+// Lokaal (jouw computer) of online (hosting)?
+if (in_array($_SERVER['REMOTE_ADDR'] ?? '', ['127.0.0.1', '::1'])) {
+    $servername = "localhost";
+    $username   = "root";
+    $password   = "";
+    $database   = "104301_program";
+} else {
+    $servername = "localhost";
+    $username   = "db_104301";
+    $password   = "arda99puq12!";
+    $database   = "104301_program";
+}
 
-$servername = "localhost";
-$username = "db_104301";
-$password = "arda99puq12!";
-$database = "104301_program";
-
-// Opties voor PDO
 $options = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, // Fouten gooien als uitzonderingen
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,       // Fetch modus
-    PDO::ATTR_EMULATE_PREPARES   => false,                  // Echte prepared statements
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
 ];
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password, $options);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    //echo "Connected successfully";
-} catch(PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
+    $conn = new PDO("mysql:host=$servername;dbname=$database;charset=utf8mb4", $username, $password, $options);
+} catch (PDOException $e) {
+    error_log($e->getMessage());
+    http_response_code(500);
+    exit("Fout: " . $e->getMessage());
 }

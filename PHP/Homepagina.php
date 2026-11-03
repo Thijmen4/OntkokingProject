@@ -1,7 +1,7 @@
 <?php
-require 'include/config.php';
+require __DIR__ . '/include/config.php';
 
-$stmt = $conn->prepare("SELECT id, titel, beschrijving, afbeelding FROM recepten ORDER BY id DESC LIMIT 4");
+$stmt = $conn->prepare("SELECT id, titel, afbeelding FROM ontkoking ORDER BY id DESC LIMIT 4");
 $stmt->execute();
 $recepten = $stmt->fetchAll();
 ?>
@@ -82,7 +82,7 @@ $recepten = $stmt->fetchAll();
                 <p>Op deze website kunt u alle kook tips en recepten vinden.</p>
             </div>
             <div class="hero_buttons">
-                <a href="../HTML/receptenpagina.html">
+                <a href="receptenpagina.php">
                     <button class="alle_recepten">Alle recepten</button></a>
             </div>
             <div class="hero_img"></div>
@@ -103,13 +103,30 @@ $recepten = $stmt->fetchAll();
             </div>
 
             <div class="recepten_box">
-                <?php foreach ($recepten as $recept): ?>
-                    <div class="recepten">
-                        <img src="../IMAGES/<?= htmlspecialchars($recept['afbeelding']) ?>" alt="">
-                        <h2><?= htmlspecialchars($recept['titel']) ?></h2>
-                        <p><?= htmlspecialchars($recept['beschrijving']) ?></p>
-                    </div>
-                <?php endforeach; ?>
+
+                <div class="recepten">
+                    <img src="../IMAGES/gezond eten img.jpeg" alt="">
+                    <h2>Recept 1</h2>
+                    <p>Hier staat de beschrijving.</p>
+                </div>
+
+                <div class="recepten">
+                    <img src="../IMAGES/gezond eten img.jpeg" alt="">
+                    <h2>Recept 2</h2>
+                    <p>Hier staat de beschrijving.</p>
+                </div>
+
+                <div class="recepten">
+                    <img src="../IMAGES/gezond eten img.jpeg" alt="">
+                    <h2>Recept 3</h2>
+                    <p>Hier staat de beschrijving.</p>
+                </div>
+
+                <div class="recepten">
+                    <img src="../IMAGES/gezond eten img.jpeg" alt="">
+                    <h2>Recept 4</h2>
+                    <p>Hier staat de beschrijving.</p>
+                </div>
             </div>
         </section>
 

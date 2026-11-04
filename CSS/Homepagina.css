@@ -128,15 +128,14 @@ header {
     width: 144px;
     height: 200px;
     background-image: url('../IMAGES/duckndish.png');
-    background-size: 1440px 200px;   /* 10 frames × 144px */
+    background-size: 1440px 200px;
     background-position: 0 0;
 
     animation: walk-cycle 1s steps(10) infinite,
     move-across 10s linear infinite;
-
     position: fixed;
-    bottom: 20px;
-    left: -200px;
+    bottom: 0;
+    left: 0;
     z-index: 1000;
     pointer-events: none;
 }

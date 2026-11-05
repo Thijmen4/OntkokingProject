@@ -57,7 +57,17 @@ $geregistreerd = isset($_GET['geregistreerd']);
                 <li>
                     <a href="../HTML/toevoegpagina.html" class="invoegen">Invoegen</a>
                     <a href="#" class="invoegen">-</a>
-                    <a href="inlog.php" class="inloggen">Inloggen</a>
+                    <?php if (isset($_SESSION['gebruikersnaam'])): ?>
+                        <details class="account">
+                            <summary><?= htmlspecialchars($_SESSION['gebruikersnaam']) ?></summary>
+                            <div class="account-menu">
+                                <a href="favorieten.php">Favorieten</a>
+                                <a href="Homepagina.php?uitloggen=1">Uitloggen</a>
+                            </div>
+                        </details>
+                    <?php else: ?>
+                        <a href="inlog.php" class="inloggen">Inloggen</a>
+                    <?php endif; ?>
                 </li>
             </ul>
 

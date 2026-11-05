@@ -1,7 +1,7 @@
 <?php
+
 session_start();
 
-// Uitloggen: Homepagina.php?uitloggen=1
 if (isset($_GET['uitloggen'])) {
     $_SESSION = [];
     session_destroy();

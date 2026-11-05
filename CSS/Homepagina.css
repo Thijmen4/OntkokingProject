@@ -24,21 +24,21 @@ footer {
     margin-top: auto;
 }
 
- @font-face {
+@font-face {
     font-family: 'font';
     src: url();
-  }
+}
 
 
 .backgroundimg {
     position: fixed;
-  inset: 0;
-  z-index: -1;
-  background-color: #FFF5E6;
-  background-image: url(../IMAGES/Background\ light.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+    inset: 0;
+    z-index: -1;
+    background-color: #FFF5E6;
+    background-image: url(../IMAGES/Background\ light.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 
@@ -124,6 +124,59 @@ header {
     transition: color 0.3s ease;
 }
 
+
+.account {
+    position: relative;
+    display: inline-block;
+}
+
+.account summary {
+    list-style: none;
+    cursor: pointer;
+    color: #FFF5E6;
+    font-size: 20px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.account summary::-webkit-details-marker {
+    display: none;
+}
+
+.account summary::after {
+    content: " \25BE";
+}
+
+.account summary:hover {
+    color: #FF875C;
+}
+
+.account-menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 14px;
+    min-width: 190px;
+    background-color: #FFF5E6;
+    border: 2px solid #292D27;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(41, 45, 39, 0.25);
+    overflow: hidden;
+    z-index: 200;
+}
+
+.navbar .account-menu a {
+    display: block;
+    padding: 12px 16px;
+    color: #292D27;
+    font-size: 16px;
+    text-transform: none;
+}
+
+.navbar .account-menu a:hover {
+    background-color: #FF875C;
+}
+
 .duck-walker {
     width: 144px;
     height: 200px;
@@ -164,7 +217,7 @@ header {
 }
 
 .categorien button:hover{
-     background-color: #e57b54;
+    background-color: #e57b54;
     transition: 0.3s;
     transform: scale(1.01);
 }
@@ -191,8 +244,8 @@ main {
 .hero_quote {
     font-size: 25px;
     color: #244D38;
-    
-    
+
+
 }
 
 .hero_buttons button {
@@ -320,7 +373,7 @@ main {
 
 
 .gezond {
-     width: 100%;
+    width: 100%;
     max-width: 1500px;
     margin: 0 auto;
     padding: 0 35px 60px;
@@ -338,7 +391,7 @@ main {
 .gezond_titel {
     text-align: left;
     padding: 0;
-    
+
 }
 
 .gezond_fav {
@@ -385,4 +438,3 @@ footer {
     margin: 0px auto;
     margin-top: 30px;
 }
-

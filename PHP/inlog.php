@@ -1,4 +1,7 @@
 <?php
+session_start();
+require __DIR__ . '/include/config.php';
+
 $fouten = [];
 $gebruikersnaam = '';
 
@@ -6,18 +9,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $gebruikersnaam = trim($_POST['gebruikersnaam'] ?? '');
     $wachtwoord     = $_POST['wachtwoord'] ?? '';
 
-    if ($gebruikersnaam === '') $fouten[] = 'Vul je gebruikersnaam in.';
-    if ($wachtwoord === '')     $fouten[] = 'Vul je wachtwoord in.';
+    if ($gebruikersnaam === '' || $wachtwoord === '') {
+        $fouten[] = 'Vul je gebruikersnaam en wachtwoord in.';
+    } else {
+        $stmt = $conn->prepare("SELECT id, gebruikersnaam, wachtwoord FROM gebruikers WHERE gebruikersnaam = ?");
+        $stmt->execute([$gebruikersnaam]);
+        $gebruiker = $stmt->fetch();
 
-    if (!$fouten) {
-        // TODO: als de tabel met gebruikers klaar is:
-        //   require __DIR__ . '/include/config.php';
-        //   gebruiker ophalen met een prepared statement (WHERE gebruikersnaam = ?)
-        //   wachtwoord controleren met password_verify($wachtwoord, $gebruiker['wachtwoord'])
-        //   session_start(); $_SESSION['gebruiker_id'] = ...; header('Location: Homepagina.php'); exit;
-        $fouten[] = 'Inloggen is nog niet gekoppeld aan de database.';
+        if ($gebruiker && password_verify($wachtwoord, $gebruiker['wachtwoord'])) {
+            session_regenerate_id(true);
+            $_SESSION['gebruiker_id']   = $gebruiker['id'];
+            $_SESSION['gebruikersnaam'] = $gebruiker['gebruikersnaam'];
+
+            header('Location: Homepagina.php');
+            exit;
+        }
+
+        // Bewust één melding: niet verklappen of de gebruikersnaam bestaat
+        $fouten[] = 'Gebruikersnaam of wachtwoord klopt niet.';
     }
 }
+
+$geregistreerd = isset($_GET['geregistreerd']);
 
 ?>
 <!DOCTYPE html>
@@ -60,6 +73,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <main>
     <div class="form-container">
         <h2>Inloggen</h2>
+
+        <?php if ($geregistreerd): ?>
+            <p class="form-succes">Je account is aangemaakt. Je kunt nu inloggen.</p>
+        <?php endif; ?>
 
         <?php foreach ($fouten as $fout): ?>
             <p class="form-fout"><?= htmlspecialchars($fout) ?></p>

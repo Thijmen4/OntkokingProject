@@ -1,4 +1,14 @@
 <?php
+session_start();
+
+// Uitloggen: Homepagina.php?uitloggen=1
+if (isset($_GET['uitloggen'])) {
+    $_SESSION = [];
+    session_destroy();
+    header('Location: Homepagina.php');
+    exit;
+}
+
 require __DIR__ . '/include/config.php';
 
 $stmt = $conn->prepare("SELECT id, titel, afbeelding FROM ontkoking ORDER BY id DESC LIMIT 4");

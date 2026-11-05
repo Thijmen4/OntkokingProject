@@ -1,4 +1,6 @@
 <?php
+require __DIR__ . '/include/config.php';
+
 $fouten = [];
 $naam  = '';
 $email = '';
@@ -8,12 +10,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email      = trim($_POST['email'] ?? '');
     $wachtwoord = $_POST['wachtwoord'] ?? '';
 
-    if ($naam === '')                                $fouten[] = 'Kies een gebruikersnaam.';
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL))  $fouten[] = 'Vul een geldig e-mailadres in.';
-    if (strlen($wachtwoord) < 8)                     $fouten[] = 'Je wachtwoord moet minimaal 8 tekens hebben.';
+    if ($naam === '' || strlen($naam) > 50)         $fouten[] = 'Kies een gebruikersnaam van maximaal 50 tekens.';
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $fouten[] = 'Vul een geldig e-mailadres in.';
+    if (strlen($wachtwoord) < 8)                    $fouten[] = 'Je wachtwoord moet minimaal 8 tekens hebben.';
 
     if (!$fouten) {
-        $fouten[] = 'Registreren is nog niet gekoppeld aan de database.';
+        // Bestaat de gebruikersnaam of het e-mailadres al?
+        $stmt = $conn->prepare("SELECT id FROM gebruikers WHERE gebruikersnaam = ? OR email = ?");
+        $stmt->execute([$naam, $email]);
+
+        if ($stmt->fetch()) {
+            $fouten[] = 'Deze gebruikersnaam of dit e-mailadres is al in gebruik.';
+        } else {
+            // Alleen de versleutelde versie van het wachtwoord opslaan
+            $hash = password_hash($wachtwoord, PASSWORD_DEFAULT);
+
+            $stmt = $conn->prepare("INSERT INTO gebruikers (gebruikersnaam, email, wachtwoord) VALUES (?, ?, ?)");
+            $stmt->execute([$naam, $email, $hash]);
+
+            header('Location: inlog.php?geregistreerd=1');
+            exit;
+        }
     }
 }
 

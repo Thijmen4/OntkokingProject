@@ -63,7 +63,7 @@ foreach (preg_split('/\R\s*\R/', trim($recept['stappen'])) as $blok) {
                         -
                     </a>
 
-                    <a href="../HTML/inlog.html" class="inloggen">
+                    <a href="inlog.php" class="inloggen">
                         Inloggen
                     </a>
                 </li>

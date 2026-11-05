@@ -39,7 +39,7 @@ $recepten = $stmt->fetchAll();
                     <a href="../HTML/toevoegpagina.html" class="invoegen">
                         Invoegen -
                     </a>
-                    <a href="../HTML/inlog.html" class="inloggen">
+                    <a href="inlog.php" class="inloggen">
                         Inloggen
                     </a>
                 </li>

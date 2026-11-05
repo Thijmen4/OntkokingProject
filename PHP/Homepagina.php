@@ -27,7 +27,7 @@ $recepten = $stmt->fetchAll();
 <header>
     <div class="navbar">
 
-        <a href="Homepagina.html" class="home-logo">
+        <a href="Homepagina.php" class="home-logo">
             <img class="home-link" src="../IMAGES/Duck & Dish Chef Logo.png" alt="">
         </a>
 
@@ -44,7 +44,7 @@ $recepten = $stmt->fetchAll();
                         -
                     </a>
 
-                    <a href="../HTML/inlog.html" class="inloggen">
+                    <a href="inlog.php" class="inloggen">
                         Inloggen
                     </a>
                 </li>

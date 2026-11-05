@@ -76,11 +76,13 @@ $recepten = $stmt->fetchAll();
             <h3>Filters</h3>
 
             <div class="filter">
-                <label>Filter 1<input type="checkbox"></label>
-                <label>Filter 2<input type="checkbox"></label>
-                <label>Filter 3<input type="checkbox"></label>
-                <label>Filter 4<input type="checkbox"></label>
-                <label>Filter 5<input type="checkbox"></label>
+                <label>Weinig calorieën<input type="checkbox"></label>
+                <label>Veel calorieën<input type="checkbox"></label>
+                <label>Weinig vezels<input type="checkbox"></label>
+                <label>Veel vezels<input type="checkbox"></label>
+                <label>Vegan<input type="checkbox"></label>
+                <label>Veel proteine<input type="checkbox"></label>
+                <label>Weinig proteine<input type="checkbox"></label>
             </div>
         </div>
 

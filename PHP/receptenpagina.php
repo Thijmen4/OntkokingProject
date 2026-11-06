@@ -74,7 +74,6 @@ $recepten = $stmt->fetchAll();
     <div class="pagina">
         <div class="sidemenu">
             <h3>Filters</h3>
-
             <div class="filter">
                 <label>Weinig calorieën<input type="checkbox"></label>
                 <label>Veel calorieën<input type="checkbox"></label>

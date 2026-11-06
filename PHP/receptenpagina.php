@@ -86,6 +86,7 @@ $recepten = $stmt->fetchAll();
             </div>
         </div>
 
+
         <div class="recepten_box">
             <?php if (!$recepten): ?>
                 <p>Er zijn nog geen recepten.</p>

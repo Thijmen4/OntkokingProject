@@ -38,7 +38,11 @@ $recepten = $stmt->fetchAll();
             <ul>
                 <li>
                     <a href="../HTML/toevoegpagina.html" class="invoegen">
-                        Invoegen -
+                        Invoegen
+                    </a>
+
+                    <a href="" class="invoegen">
+                        -
                     </a>
                     <?php if (isset($_SESSION['gebruikersnaam'])): ?>
                         <details class="account">
@@ -74,6 +78,7 @@ $recepten = $stmt->fetchAll();
     <div class="pagina">
         <div class="sidemenu">
             <h3>Filters</h3>
+
             <div class="filter">
                 <label>Weinig calorieën<input type="checkbox"></label>
                 <label>Veel calorieën<input type="checkbox"></label>

@@ -161,11 +161,25 @@ main {
 }
 
 .sidemenu {
-    width: 220px;
-    min-width: 220px;
+    width: 245px;
+    min-width: 245px;
+    padding: 25px;
     background-color: #FFF5E6;
-    border: 1px solid #292D27;
-    padding: 20px;
+    border-right: 1px solid #292D27;
+    text-align: center;
+}
+
+.sidemenu h3 {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+
+
+.sidemenu form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .filter {
@@ -182,19 +196,41 @@ main {
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
+    text-align: left;
 }
 
 .filter input[type="checkbox"] {
-    width: 15px;
-    height: 15px;
+    width: 17px;
+    height: 17px;
     margin: 0;
     accent-color: #244D38;
     cursor: pointer;
 }
 
-.filter input[type="checkbox"]:hover {
-    transition: 0.3s;
+.sidemenu form button {
+    padding: 10px;
+    border: 2px solid #292D27;
+    border-radius: 8px;
     background-color: #244D38;
+    color: #FFF5E6;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+}
+
+.sidemenu form button:hover {
+    background-color: #35664D;
+    transition: 0.3s;
+}
+
+.sidemenu form a {
+    display: block;
+    text-align: center;
+    color: #244D38;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .recepten_box {
@@ -238,6 +274,8 @@ main {
     color: #292D27;
     padding: 0 12px 15px;
 }
+
+
 
 footer {
     width: 100%;

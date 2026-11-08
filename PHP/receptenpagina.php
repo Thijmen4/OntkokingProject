@@ -1,10 +1,82 @@
+
 <?php
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+
 session_start();
 require __DIR__ . '/include/config.php';
 
-// Alle recepten ophalen, nieuwste eerst
-$stmt = $conn->prepare("SELECT id, titel, afbeelding FROM ontkoking ORDER BY id DESC");
-$stmt->execute();
+
+$filters = $_GET['filters'] ?? [];
+
+$toegestaneFilters = [
+        'weinig_calorieen',
+        'veel_calorieen',
+        'weinig_vezels',
+        'veel_vezels',
+        'vegan',
+        'veel_proteine',
+        'weinig_proteine'
+];
+
+if (!is_array($filters)) {
+    $filters = [];
+}
+
+$filters = array_values(array_intersect($filters, $toegestaneFilters));
+
+
+$sql = "SELECT id, titel, afbeelding FROM ontkoking";
+
+$voorwaarden = [];
+$params = [];
+
+if (in_array('weinig_calorieen', $filters)) {
+    $voorwaarden[] = "calorieen <= :weinig_calorieen";
+    $params['weinig_calorieen'] = 400;
+}
+
+if (in_array('veel_calorieen', $filters)) {
+    $voorwaarden[] = "calorieen >= :veel_calorieen";
+    $params['veel_calorieen'] = 700;
+}
+
+if (in_array('weinig_vezels', $filters)) {
+    $voorwaarden[] = "vezels <= :weinig_vezels";
+    $params['weinig_vezels'] = 5;
+}
+
+if (in_array('veel_vezels', $filters)) {
+    $voorwaarden[] = "vezels >= :veel_vezels";
+    $params['veel_vezels'] = 10;
+}
+
+if (in_array('vegan', $filters)) {
+    $voorwaarden[] = "vegan = :vegan";
+    $params['vegan'] = 1;
+}
+
+if (in_array('veel_proteine', $filters)) {
+    $voorwaarden[] = "eiwitten >= :veel_proteine";
+    $params['veel_proteine'] = 25;
+}
+
+if (in_array('weinig_proteine', $filters)) {
+    $voorwaarden[] = "eiwitten <= :weinig_proteine";
+    $params['weinig_proteine'] = 10;
+}
+
+
+if (!empty($voorwaarden)) {
+    $sql .= " WHERE " . implode(" AND ", $voorwaarden);
+}
+
+$sql .= " ORDER BY id DESC";
+
+$stmt = $conn->prepare($sql);
+$stmt->execute($params);
 $recepten = $stmt->fetchAll();
 ?>
 <!DOCTYPE html>
@@ -13,7 +85,7 @@ $recepten = $stmt->fetchAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alle recepten</title>
-    <link rel="stylesheet" href="../CSS/receptenpagina.css">
+    <link rel="stylesheet" href="../CSS/receptenpagina.css?v=3">
     <script defer src="../JS/receptenpagina.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
 
@@ -79,15 +151,50 @@ $recepten = $stmt->fetchAll();
         <div class="sidemenu">
             <h3>Filters</h3>
 
-            <div class="filter">
-                <label>Weinig calorieën<input type="checkbox"></label>
-                <label>Veel calorieën<input type="checkbox"></label>
-                <label>Weinig vezels<input type="checkbox"></label>
-                <label>Veel vezels<input type="checkbox"></label>
-                <label>Vegan<input type="checkbox"></label>
-                <label>Veel proteine<input type="checkbox"></label>
-                <label>Weinig proteine<input type="checkbox"></label>
-            </div>
+            <form method="GET" action="">
+                <div class="filter">
+
+                    <label>Weinig calorieën
+                        <input type="checkbox" name="filters[]" value="weinig_calorieen"
+                                <?= in_array('weinig_calorieen', $filters) ? 'checked' : '' ?>>
+                    </label>
+
+                    <label>Veel calorieën
+                        <input type="checkbox" name="filters[]" value="veel_calorieen"
+                                <?= in_array('veel_calorieen', $filters) ? 'checked' : '' ?>>
+                    </label>
+
+                    <label>Weinig vezels
+                        <input type="checkbox" name="filters[]" value="weinig_vezels"
+                                <?= in_array('weinig_vezels', $filters) ? 'checked' : '' ?>>
+                    </label>
+
+                    <label>Veel vezels
+                        <input type="checkbox" name="filters[]" value="veel_vezels"
+                                <?= in_array('veel_vezels', $filters) ? 'checked' : '' ?>>
+                    </label>
+
+                    <label>Vegan
+                        <input type="checkbox" name="filters[]" value="vegan"
+                                <?= in_array('vegan', $filters) ? 'checked' : '' ?>>
+                    </label>
+
+                    <label>Veel proteine
+                        <input type="checkbox" name="filters[]" value="veel_proteine"
+                                <?= in_array('veel_proteine', $filters) ? 'checked' : '' ?>>
+                    </label>
+
+                    <label>Weinig proteine
+                        <input type="checkbox" name="filters[]" value="weinig_proteine"
+                                <?= in_array('weinig_proteine', $filters) ? 'checked' : '' ?>>
+                    </label>
+
+                </div>
+
+                <button type="submit">Filters toepassen</button>
+                <a href="Receptenpagina.php">Filters wissen</a>
+
+            </form>
         </div>
 
 

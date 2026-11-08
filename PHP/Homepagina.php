@@ -1,3 +1,4 @@
+
 <?php
 
 session_start();
@@ -14,6 +15,7 @@ require __DIR__ . '/include/config.php';
 $stmt = $conn->prepare("SELECT id, titel, afbeelding FROM ontkoking ORDER BY id DESC LIMIT 4");
 $stmt->execute();
 $recepten = $stmt->fetchAll();
+
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +27,6 @@ $recepten = $stmt->fetchAll();
     <link rel="stylesheet" href="../CSS/Homepagina.css">
     <script defer src="../JS/Homepagina.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/SplitText.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/TextPlugin.min.js"></script>
@@ -69,9 +70,9 @@ $recepten = $stmt->fetchAll();
 
 
 <div class="categorien">
-    <button class="ontbijt">Ontbijt</button>
-    <button class="lunch">Lunch</button>
-    <button class="avondeten">Avondeten</button>
+    <button class="ontbijt" onclick="window.location.href='Homepagina.php?categorie=Ontbijt'">Ontbijt</button>
+    <button class="lunch" onclick="window.location.href='Homepagina.php?categorie=Lunch'">Lunch</button>
+    <button class="avondeten" onclick="window.location.href='Homepagina.php?categorie=Avondeten'">Avondeten</button>
 </div>
 
 <div class="backgroundimg">
@@ -114,29 +115,17 @@ $recepten = $stmt->fetchAll();
 
             <div class="recepten_box">
 
-                <div class="recepten">
-                    <img src="../IMAGES/gezond eten img.jpeg" alt="">
-                    <h2>Recept 1</h2>
-                    <p>Hier staat de beschrijving.</p>
-                </div>
+                <?php if (!$recepten): ?>
+                    <p>Er zijn nog geen recepten.</p>
+                <?php endif; ?>
 
-                <div class="recepten">
-                    <img src="../IMAGES/gezond eten img.jpeg" alt="">
-                    <h2>Recept 2</h2>
-                    <p>Hier staat de beschrijving.</p>
-                </div>
+                <?php foreach ($recepten as $recept): ?>
+                    <a class="recepten" href="details.php?id=<?= (int)$recept['id'] ?>">
+                        <img src="../IMAGES/<?= htmlspecialchars($recept['afbeelding']) ?>" alt="">
+                        <h2><?= htmlspecialchars($recept['titel']) ?></h2>
+                    </a>
+                <?php endforeach; ?>
 
-                <div class="recepten">
-                    <img src="../IMAGES/gezond eten img.jpeg" alt="">
-                    <h2>Recept 3</h2>
-                    <p>Hier staat de beschrijving.</p>
-                </div>
-
-                <div class="recepten">
-                    <img src="../IMAGES/gezond eten img.jpeg" alt="">
-                    <h2>Recept 4</h2>
-                    <p>Hier staat de beschrijving.</p>
-                </div>
             </div>
         </section>
 
@@ -154,7 +143,7 @@ $recepten = $stmt->fetchAll();
 
                 <div class="recepten">
                     <img src="../IMAGES/gezond eten img.jpeg" alt="">
-                    <h2>Recept 1</h2>
+                    <h2></h2>
                     <p>Hier staat de beschrijving.</p>
                 </div>
 

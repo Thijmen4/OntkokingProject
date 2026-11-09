@@ -34,12 +34,19 @@ $stmt->execute($params);
 $recepten = $stmt->fetchAll();
 
 $sqlGezond = "SELECT id, titel, afbeelding, calorieen FROM ontkoking
-              WHERE calorieen <= 600
-              ORDER BY calorieen ASC
-              LIMIT 4";
+              WHERE calorieen IS NOT NULL";
+
+$paramsGezond = [];
+
+if ($categorie !== '') {
+    $sqlGezond .= " AND categorie = :categorie";
+    $paramsGezond['categorie'] = $categorie;
+}
+
+$sqlGezond .= " ORDER BY calorieen ASC LIMIT 4";
 
 $stmtGezond = $conn->prepare($sqlGezond);
-$stmtGezond->execute();
+$stmtGezond->execute($paramsGezond);
 $gezondeRecepten = $stmtGezond->fetchAll();
 
 ?>

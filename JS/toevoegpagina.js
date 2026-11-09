@@ -56,3 +56,5 @@ document.getElementById('addStepBtn').onclick = (e) => {
     document.getElementById('stepsList').insertBefore(step, e.target);
 };
 
+
+11

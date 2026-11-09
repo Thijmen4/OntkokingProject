@@ -158,6 +158,8 @@ main {
 .pagina {
     display: flex;
     width: 100%;
+    flex: 1;
+    align-items: stretch;
 }
 
 .sidemenu {
@@ -309,8 +311,6 @@ footer {
     .sidemenu {
         width: 260px;
         min-width: 260px;
-        height: 1000px;
-        max-height: 2000px;
         font-size: 18px;
     }
 

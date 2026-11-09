@@ -1,4 +1,3 @@
-
 <?php
 
 ini_set('display_errors', 1);
@@ -10,6 +9,7 @@ require __DIR__ . '/include/config.php';
 
 
 $filters = $_GET['filters'] ?? [];
+$categorie = $_GET['categorie'] ?? '';
 
 $toegestaneFilters = [
         'weinig_calorieen',
@@ -21,17 +21,28 @@ $toegestaneFilters = [
         'weinig_proteine'
 ];
 
+$categorien = ['Ontbijt', 'Lunch', 'Avondeten'];
+
 if (!is_array($filters)) {
     $filters = [];
 }
 
 $filters = array_values(array_intersect($filters, $toegestaneFilters));
 
+if (!in_array($categorie, $categorien, true)) {
+    $categorie = '';
+}
+
 
 $sql = "SELECT id, titel, afbeelding FROM ontkoking";
 
 $voorwaarden = [];
 $params = [];
+
+if ($categorie !== '') {
+    $voorwaarden[] = "categorie = :categorie";
+    $params['categorie'] = $categorie;
+}
 
 if (in_array('weinig_calorieen', $filters)) {
     $voorwaarden[] = "calorieen <= :weinig_calorieen";
@@ -85,7 +96,7 @@ $recepten = $stmt->fetchAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alle recepten</title>
-    <link rel="stylesheet" href="../CSS/receptenpagina.css?v=3">
+    <link rel="stylesheet" href="../CSS/receptenpagina.css?v=4">
     <script defer src="../JS/receptenpagina.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
 
@@ -136,9 +147,9 @@ $recepten = $stmt->fetchAll();
 
 
 <div class="categorien">
-    <button class="ontbijt">Ontbijt</button>
-    <button class="lunch">Lunch</button>
-    <button class="avondeten">Avondeten</button>
+    <button class="ontbijt" onclick="window.location.href='receptenpagina.php?categorie=Ontbijt'">Ontbijt</button>
+    <button class="lunch" onclick="window.location.href='receptenpagina.php?categorie=Lunch'">Lunch</button>
+    <button class="avondeten" onclick="window.location.href='receptenpagina.php?categorie=Avondeten'">Avondeten</button>
 </div>
 
 <div class="backgroundimg">
@@ -152,6 +163,7 @@ $recepten = $stmt->fetchAll();
             <h3>Filters</h3>
 
             <form method="GET" action="">
+                <input type="hidden" name="categorie" value="<?= htmlspecialchars($categorie) ?>">
                 <div class="filter">
 
                     <label>Weinig calorieën
@@ -192,7 +204,7 @@ $recepten = $stmt->fetchAll();
                 </div>
 
                 <button type="submit">Filters toepassen</button>
-                <a href="Receptenpagina.php">Filters wissen</a>
+                <a href="receptenpagina.php">Filters wissen</a>
 
             </form>
         </div>

@@ -1,4 +1,3 @@
-
 <?php
 
 session_start();
@@ -33,6 +32,15 @@ $sql .= " ORDER BY id DESC LIMIT 4";
 $stmt = $conn->prepare($sql);
 $stmt->execute($params);
 $recepten = $stmt->fetchAll();
+
+$sqlGezond = "SELECT id, titel, afbeelding, calorieen FROM ontkoking
+              WHERE calorieen <= 600
+              ORDER BY calorieen ASC
+              LIMIT 4";
+
+$stmtGezond = $conn->prepare($sqlGezond);
+$stmtGezond->execute();
+$gezondeRecepten = $stmtGezond->fetchAll();
 
 ?>
 
@@ -154,34 +162,23 @@ $recepten = $stmt->fetchAll();
                 <div class="gezond_titel">
                     <span class="gezond_fav">MEEST GEZONDEN GERECHTEN</span>
                     <h2>Gezonde recepten</h2>
-                    <p>Ontdek wat gezonde en smaakvolle gerechten die jekunt maken.</p>
+                    <p>Ontdek wat gezonde en smaakvolle gerechten die je kunt maken.</p>
                 </div>
             </div>
             <div class="recepten_box">
 
-                <div class="recepten">
-                    <img src="../IMAGES/gezond eten img.jpeg" alt="">
-                    <h2></h2>
-                    <p>Hier staat de beschrijving.</p>
-                </div>
+                <?php if (!$gezondeRecepten): ?>
+                    <p>Er zijn nog geen gezonde recepten beschikbaar.</p>
+                <?php endif; ?>
 
-                <div class="recepten">
-                    <img src="../IMAGES/gezond eten img.jpeg" alt="">
-                    <h2>Recept 2</h2>
-                    <p>Hier staat de beschrijving.</p>
-                </div>
+                <?php foreach ($gezondeRecepten as $recept): ?>
+                    <a class="recepten" href="details.php?id=<?= (int)$recept['id'] ?>">
+                        <img src="../IMAGES/<?= htmlspecialchars($recept['afbeelding']) ?>" alt="">
+                        <h2><?= htmlspecialchars($recept['titel']) ?></h2>
+                        <p><?= (int)$recept['calorieen'] ?> kcal</p>
+                    </a>
+                <?php endforeach; ?>
 
-                <div class="recepten">
-                    <img src="../IMAGES/gezond eten img.jpeg" alt="">
-                    <h2>Recept 3</h2>
-                    <p>Hier staat de beschrijving.</p>
-                </div>
-
-                <div class="recepten">
-                    <img src="../IMAGES/gezond eten img.jpeg" alt="">
-                    <h2>Recept 4</h2>
-                    <p>Hier staat de beschrijving.</p>
-                </div>
             </div>
         </section>
 

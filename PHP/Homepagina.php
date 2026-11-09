@@ -12,8 +12,26 @@ if (isset($_GET['uitloggen'])) {
 
 require __DIR__ . '/include/config.php';
 
-$stmt = $conn->prepare("SELECT id, titel, afbeelding FROM ontkoking ORDER BY id DESC LIMIT 4");
-$stmt->execute();
+$categorie = $_GET['categorie'] ?? '';
+
+$categorien = ['Ontbijt', 'Lunch', 'Avondeten'];
+
+if (!in_array($categorie, $categorien, true)) {
+    $categorie = '';
+}
+
+$sql = "SELECT id, titel, afbeelding FROM ontkoking";
+$params = [];
+
+if ($categorie !== '') {
+    $sql .= " WHERE categorie = :categorie";
+    $params['categorie'] = $categorie;
+}
+
+$sql .= " ORDER BY id DESC LIMIT 4";
+
+$stmt = $conn->prepare($sql);
+$stmt->execute($params);
 $recepten = $stmt->fetchAll();
 
 ?>
@@ -24,7 +42,7 @@ $recepten = $stmt->fetchAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>De homepagina</title>
-    <link rel="stylesheet" href="../CSS/Homepagina.css">
+    <link rel="stylesheet" href="../CSS/Homepagina.css?v=2">
     <script defer src="../JS/Homepagina.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>

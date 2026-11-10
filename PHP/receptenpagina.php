@@ -54,6 +54,8 @@ if (in_array('veel_calorieen', $filters)) {
     $params['veel_calorieen'] = 700;
 }
 
+
+
 if (in_array('weinig_vezels', $filters)) {
     $voorwaarden[] = "vezels <= :weinig_vezels";
     $params['weinig_vezels'] = 5;

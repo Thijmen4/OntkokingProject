@@ -174,6 +174,7 @@ $gezondeRecepten = $stmtGezond->fetchAll();
             </div>
             <div class="recepten_box">
 
+
                 <?php if (!$gezondeRecepten): ?>
                     <p>Er zijn nog geen gezonde recepten beschikbaar.</p>
                 <?php endif; ?>

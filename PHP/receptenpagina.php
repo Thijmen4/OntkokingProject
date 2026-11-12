@@ -98,7 +98,7 @@ $recepten = $stmt->fetchAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alle recepten</title>
-    <link rel="stylesheet" href="../CSS/receptenpagina.css?v=4">
+    <link rel="stylesheet" href="../CSS/receptenpagina.css?v=5">
     <script defer src="../JS/receptenpagina.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
 
@@ -122,7 +122,7 @@ $recepten = $stmt->fetchAll();
         <nav>
             <ul>
                 <li>
-                    <a href="../HTML/toevoegpagina.html" class="invoegen">
+                    <a href="../PHP/toevoegpagina.php" class="invoegen">
                         Invoegen
                     </a>
 
@@ -219,7 +219,7 @@ $recepten = $stmt->fetchAll();
 
             <?php foreach ($recepten as $recept): ?>
                 <a class="recepten" href="details.php?id=<?= (int)$recept['id'] ?>">
-                    <img src="../IMAGES/<?= htmlspecialchars($recept['afbeelding']) ?>" alt="">
+                    <img src="../uploads/<?= htmlspecialchars($recept['afbeelding']) ?>" alt="">
                     <h2><?= htmlspecialchars($recept['titel']) ?></h2>
                 </a>
             <?php endforeach; ?>

@@ -84,7 +84,7 @@ foreach (preg_split('/\R\s*\R/', trim($recept['stappen'])) as $blok) {
 
 <section class="hero-kaan">
     <div class="hero-kaan-img">
-        <img src="../IMAGES/<?= htmlspecialchars($recept['afbeelding']) ?>" alt="<?= htmlspecialchars($recept['titel']) ?>">
+        <img src="../uploads/<?= htmlspecialchars($recept['afbeelding']) ?>" alt=""<?= htmlspecialchars($recept['titel']) ?>">
     </div>
 
     <div class="hero-kaan-info">

@@ -107,6 +107,7 @@ header {
 }
 
 
+
 .navbar nav ul {
     display: flex;
     align-items: center;
@@ -123,7 +124,6 @@ header {
     text-transform: uppercase;
     transition: color 0.3s ease;
 }
-
 
 .account {
     position: relative;
@@ -333,6 +333,7 @@ main {
     padding: 0;
     width: 100%;
     margin: 0;
+
 }
 
 .recepten {
@@ -340,9 +341,10 @@ main {
     border: 1px solid #D8D2C5;
     border-radius: 16px;
     overflow: hidden;
-    text-align: left;
+    text-align: center;
     box-shadow: 0 4px 12px rgba(41, 45, 39, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
 }
 
 .recepten:hover {

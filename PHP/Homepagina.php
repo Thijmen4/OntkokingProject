@@ -57,7 +57,7 @@ $gezondeRecepten = $stmtGezond->fetchAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>De homepagina</title>
-    <link rel="stylesheet" href="../CSS/Homepagina.css?v=2">
+    <link rel="stylesheet" href="../CSS/Homepagina.css?v=3">
     <script defer src="../JS/Homepagina.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
@@ -72,7 +72,7 @@ $gezondeRecepten = $stmtGezond->fetchAll();
     <div class="navbar">
 
         <a href="Homepagina.php" class="home-logo">
-            <img class="home-link" src="../IMAGES/Duck & Dish Chef Logo.png" alt="">
+            <img class="home-link" src="../IMAGES/Duck & Dish Chef Logo.png" alt="Duck & Dish">
         </a>
 
         <input type="search" placeholder="🔍 Zoeken..." class="zoeken">
@@ -80,27 +80,27 @@ $gezondeRecepten = $stmtGezond->fetchAll();
         <nav>
             <ul>
                 <li>
-                    <a href="../HTML/toevoegpagina.html" class="invoegen">
-                        Invoegen
-                    </a>
-
-                    <a href="" class="invoegen">
-                        -
-                    </a>
-
-                    <a href="inlog.php" class="inloggen">
-                        Inloggen
-                    </a>
+                    <a href="../PHP/toevoegpagina.php" class="invoegen">Invoegen</a>
+                    <a href="#" class="invoegen">-</a>
+                    <?php if (isset($_SESSION['gebruikersnaam'])): ?>
+                        <details class="account">
+                            <summary><?= htmlspecialchars($_SESSION['gebruikersnaam']) ?></summary>
+                            <div class="account-menu">
+                                <a href="favorieten.php">Favorieten</a>
+                                <a href="Homepagina.php?uitloggen=1">Uitloggen</a>
+                            </div>
+                        </details>
+                    <?php else: ?>
+                        <a href="inlog.php" class="inloggen">Inloggen</a>
+                    <?php endif; ?>
                 </li>
             </ul>
 
             <div class="duck-walker"></div>
-
         </nav>
 
     </div>
 </header>
-
 
 <div class="categorien">
     <button class="ontbijt" onclick="window.location.href='Homepagina.php?categorie=Ontbijt'">Ontbijt</button>
@@ -154,7 +154,7 @@ $gezondeRecepten = $stmtGezond->fetchAll();
 
                 <?php foreach ($recepten as $recept): ?>
                     <a class="recepten" href="details.php?id=<?= (int)$recept['id'] ?>">
-                        <img src="../IMAGES/<?= htmlspecialchars($recept['afbeelding']) ?>" alt="">
+                        <img src="../uploads/<?= htmlspecialchars($recept['afbeelding']) ?>" alt="">
                         <h2><?= htmlspecialchars($recept['titel']) ?></h2>
                     </a>
                 <?php endforeach; ?>
@@ -181,7 +181,7 @@ $gezondeRecepten = $stmtGezond->fetchAll();
 
                 <?php foreach ($gezondeRecepten as $recept): ?>
                     <a class="recepten" href="details.php?id=<?= (int)$recept['id'] ?>">
-                        <img src="../IMAGES/<?= htmlspecialchars($recept['afbeelding']) ?>" alt="">
+                        <img src="../uploads/<?= htmlspecialchars($recept['afbeelding']) ?>" alt="">
                         <h2><?= htmlspecialchars($recept['titel']) ?></h2>
                         <p><?= (int)$recept['calorieen'] ?> kcal</p>
                     </a>
